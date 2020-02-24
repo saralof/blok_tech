@@ -1,0 +1,17 @@
+{
+  "name": "Project_tech",
+  "description": "Datingapp",
+  "version": "6.13.7",
+  "author": "Sara Lof",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "express": "^4.17.1",
+    "semver": "^7.1.3"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
