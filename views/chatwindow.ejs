@@ -11,7 +11,7 @@
     </header>
     <main>
         <a href="chatoverview"><img src="" alt="go back"></a>
-        <div id="naastelkaar">
+        <div class="naastelkaar">
             <section id="dechat"><h2>Andere gebruikersnaam</h2>
             <% if(messages.length){ %>
                     <% for(var i=0; i < messages.length; i++){ %>
@@ -25,7 +25,7 @@
 	    </form>
 
     </section>
-    <section id="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
+    <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
         <h2><%= users[0].name %></h2>
         <h3><%= users[0].age %></h3>
         <h4>About me</h4>

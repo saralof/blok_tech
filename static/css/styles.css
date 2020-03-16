@@ -73,15 +73,19 @@ article img{
     width: 100%;
 }
 
-#naastelkaar{
+.naastelkaar{
     display: flex;
 }
 
-#chatprofile{
+.chatprofile{
     width: 25%;
 }
 
 #dechat {
+    width: 50%;
+}
+
+#useroverview {
     width: 50%;
 }
 

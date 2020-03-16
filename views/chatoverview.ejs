@@ -10,7 +10,7 @@
         <%- include('partials/header.ejs'); -%>
     </header>
     <main id="home">
-        <section>
+        <div class="naastelkaar"><section id="useroverview">
             <article><p><%= users[0].name %></p>
             <p><%= messages[0].message %></p>
         </article>
@@ -21,13 +21,13 @@
             <p><%= messages[2].message %></p>
         </article>
         </section>
-        <section><img src="../static/images/scratch.png" alt="Profielfoto">
+        <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
         <h2><%= users[0].name %></h2>
         <h3><%= users[0].age %></h3>
         <h4>About me</h4>
         <p><%= users[0].description %></p>
         <a href="chatwindow"><button>Talk to <%= users[0].name %></button></a>
-    <button>Show <%= users[0].name %>'s profile</button></section>
+    <button>Show <%= users[0].name %>'s profile</button></section></div>
     </main>
     <footer><%- include('partials/footer.ejs'); -%></footer>
 </body>
