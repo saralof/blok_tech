@@ -6,7 +6,7 @@ Ik heb een chat gemaakt. Binnen deze chat krijg je suggeties van onderwerpen waa
 
 _________________________________________________________________________
 
-###Installeer mijn feature
+### Installeer mijn feature
 1.	Clone mijn repository door deze link in je terminal te kopieren:
 git clone https://github.com/saralof/projectTech.git
 2.	Navigeer naar mijn map met: cd projectTech
@@ -16,5 +16,5 @@ git clone https://github.com/saralof/projectTech.git
 6.	Ga binnen een browser naar “localhost:3000”
 ______________________________________________________________________
 
-###Proces
+### Proces
 Meer informatie over mijn project en het proces kun je vinden in de wiki binnen deze repository
