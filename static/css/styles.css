@@ -77,5 +77,18 @@ article img{
     display: flex;
 }
 
+#chatprofile{
+    width: 25%;
+}
+
+#dechat {
+    width: 50%;
+}
+
+footer {
+    background-color: white;
+    position: fixed;
+    bottom: 100;
+}
 
 </style>

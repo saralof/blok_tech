@@ -11,21 +11,11 @@
     </header>
     <main>
         <a href="chatoverview"><img src="" alt="go back"></a>
-        <div id="naastelkaar"><section><h2>Andere gebruikersnaam</h2>
+        <div id="naastelkaar">
+            <section id="dechat"><h2>Andere gebruikersnaam</h2>
             <% if(messages.length){ %>
-                <table>
-                    <tr>
-                        <th>index</th>
-                        <th>
-                            message
-                        </th>
-                    </tr>
                     <% for(var i=0; i < messages.length; i++){ %>
-                    <tr>
-                    <td><%= i %></td>
-                    <td><%= messages[i].message %></td>
-                    </tr>
-                </table>
+                    <p><%= messages[i].message %></p>
                 <% }} %>
     
         <p>Praat over je favoriete huisdier</p>
@@ -35,14 +25,12 @@
 	    </form>
 
     </section>
-    <section><img src="../static/images/scratch.png" alt="Profielfoto">
-        <h2>Jonny Baldwin</h2>
-        <h3>25</h3>
+    <section id="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
+        <h2><%= users[0].name %></h2>
+        <h3><%= users[0].age %></h3>
         <h4>About me</h4>
-        <p>I am Jonny. I am looking for someone to take out into nature and have picknicks with. 
-            I like to meet someone who's serious about dating and who doesn't take me lightly since I have had bad experiences.
-            If you might be the one I'd like to take you out on a picknick to a place of your choosing.</p>
-        <button>Show Jonny's profile</button>
+        <p><%= users[0].description %></p>
+        <button>Show <%= users[0].name %>'s profile</button>
     </section></div>
     </main>
     <footer><%- include('partials/footer.ejs'); -%></footer>
