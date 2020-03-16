@@ -1,3 +1,4 @@
+<style>
 body {
     font-family: 'Comfortaa';
     margin: 0;
@@ -71,3 +72,10 @@ article {
 article img{
     width: 100%;
 }
+
+#naastelkaar{
+    display: flex;
+}
+
+
+</style>
