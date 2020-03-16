@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: pink;
+    background-color: #ffc0cb;
     padding: .5em;
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@ main li{
 
 a{ 
     text-decoration: none;
-    color: black;
+    color: #000000;
 }
 
 div{
@@ -81,7 +81,7 @@ article img{
     width: 25%;
 }
 
-#dechat {
+#deChat {
     width: 50%;
 }
 
@@ -90,9 +90,6 @@ article img{
 }
 
 footer {
-    background-color: white;
-    position: fixed;
-    bottom: 100;
+    background-color: #ffffff;
 }
-
 </style>

@@ -9,16 +9,16 @@
     <header>
         <%- include('partials/header.ejs'); -%>
     </header>
-    <main id="home">
+    <main>
+        <h1>Hoi, <%= users[userID].name %></h1>
         <div class="naastelkaar"><section id="useroverview">
-            <article><p><%= users[0].name %></p>
-            <p><%= messages[0].message %></p>
-        </article>
-        <article><p><%= users[1].name %></p>
-            <p><%= messages[1].message %></p>
-        </article>
-        <article><p><%= users[2].name %></p>
-            <p><%= messages[2].message %></p>
+            <form method="post" target="/chatwindow">
+                <% if(users.length){ %>
+                    <% for(var i=0; i < users.length; i++){ %>
+                        <% if (users[i].name !== users[userID].name) { %>
+                            <input type=radio value=<%= i %> name="chatWith"><%= users[i].name %>
+                            <p><%= messages[i].message %></p>
+            <% }}} %><button>Talk to me!</button></form>
         </article>
         </section>
         <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">

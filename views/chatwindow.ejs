@@ -12,13 +12,13 @@
     <main>
         <a href="chatoverview"><img src="" alt="go back"></a>
         <div class="naastelkaar">
-            <section id="dechat"><h2>Andere gebruikersnaam</h2>
+            <section id="deChat"><h2><%= users[0].name %></h2>
             <% if(messages.length){ %>
                     <% for(var i=0; i < messages.length; i++){ %>
-                    <p><%= messages[i].message %></p>
+                    <p class="myMessage"><%= messages[i].message %></p>
                 <% }} %>
     
-        <p>Praat over je favoriete huisdier</p>
+        <p>Talk about <%= subjects[sub].oneSubject %></p>
         <form method="post" target="chatwindow">
             <input type="textarea" name="message" placeholder="Say something">
 	        <button>--></button>
