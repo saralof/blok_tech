@@ -10,15 +10,14 @@
         <%- include('partials/header.ejs'); -%>
     </header>
     <main>
-        <h1>Hoi, <%= users[userID].name %></h1>
+        <h2 id="sayHi">Hoi, <%= users[userID].name %></h2>
         <div class="naastelkaar"><section id="useroverview">
-            <form method="post" target="/chatwindow">
-                <% if(users.length){ %>
-                    <% for(var i=0; i < users.length; i++){ %>
-                        <% if (users[i].name !== users[userID].name) { %>
-                            <input type=radio value=<%= i %> name="chatWith"><%= users[i].name %>
-                            <p><%= messages[i].message %></p>
-            <% }}} %><button>Talk to me!</button></form>
+            <% if(users.length){ %>
+                <% for(var i=0; i < users.length; i++){ %>
+                    <% if (users[i].name !== users[userID].name) { %>
+            <article class="mensen"><p><%= users[i].name %></p>
+            <p><%= messages[i].message %></p></article>
+            <% }}} %>
         </article>
         </section>
         <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">

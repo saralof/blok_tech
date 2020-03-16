@@ -12,7 +12,7 @@
     <main>
         <a href="chatoverview"><img src="" alt="go back"></a>
         <div class="naastelkaar">
-            <section id="deChat"><h2><%= users[0].name %></h2>
+            <section id="deChat">
             <% if(messages.length){ %>
                     <% for(var i=0; i < messages.length; i++){ %>
                     <p class="myMessage"><%= messages[i].message %></p>
@@ -20,7 +20,7 @@
     
         <p>Talk about <%= subjects[sub].oneSubject %></p>
         <form method="post" target="chatwindow">
-            <input type="textarea" name="message" placeholder="Say something">
+            <input type="textarea" name="message" placeholder="Say something" id="talkHere">
 	        <button>--></button>
 	    </form>
 

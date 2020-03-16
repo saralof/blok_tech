@@ -31,6 +31,14 @@ header img {
     display: grid;
 }
 
+button{
+    border-radius: 1em;
+    background-color: #ffffff;
+    font-family: 'Comfortaa';
+    padding: 1.2em 2.5em;
+    margin: 1em;
+}
+
 h1 {
     color: #af191a;
     font-size: 6em;
@@ -79,17 +87,44 @@ article img{
 
 .chatprofile{
     width: 25%;
+    background-color: #FCFCFC;
+    border-radius: 3em;
+    margin: 1em 1em 1em 0em;
+    text-align: center;
 }
 
 #deChat {
-    width: 50%;
+    width: 60%;
+    background-color: #F4F4F4;
+    height: 35vw;
+    border-radius: 3em;
+    margin: 1em 0em 1em 1em;
+}
+
+#talkHere {
+    padding: 1.2em;
+    width: 45vw;
 }
 
 #useroverview {
     width: 50%;
 }
 
+#sayHi {
+    color: #af191a;
+    padding: 5em 0em 0em 5em;
+}
+
+.mensen {
+    background-color:  #F4F4F4;
+    border-radius: 2em;
+    padding: .5em;
+    margin: .5em;
+}
+
 footer {
     background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
 }
 </style>
