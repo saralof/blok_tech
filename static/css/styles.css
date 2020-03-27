@@ -1,4 +1,8 @@
-<style>
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Comfortaa';
     margin: 0;
@@ -127,4 +131,3 @@ footer {
     position: fixed;
     bottom: 0;
 }
-</style>

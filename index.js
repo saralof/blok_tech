@@ -6,9 +6,6 @@ const ejs = require('ejs');
 const fs = require('fs');
 const bodyParser = require ('body-parser');
 const slug = require('slug');
-const myCss = {
-    style : fs.readFileSync('static/css/styles.css','utf8')
-};
 const jquery = require('jquery');
 const session = require('express-session'); 
 const cookieParser = require('cookie-parser');
@@ -107,7 +104,7 @@ berichten.find(function(err, messages){
     if (err) {
         console.log(err);
     }else{
-        res.render('chatoverview', {myCss: myCss, users: users, messages: messages})
+        res.render('chatoverview', {users: users, messages: messages})
     }
 }));
 app.get('/chatwindow', (req, res) =>
@@ -116,7 +113,7 @@ berichten.find(function(err, messages){
         console.log(err);
     }else{
         let sub = Math.floor(Math.random() * 10);
-        res.render('chatwindow', {myCss: myCss, users: users, messages: messages, subjects: subjects, sub: sub})
+        res.render('chatwindow', {users: users, messages: messages, subjects: subjects, sub: sub})
     }
 }));
 app.get('/', (req, res) => res.render('index', {myCss: myCss}));
@@ -133,7 +130,7 @@ app.post('/', (req, res) => {
         if (err) {
             console.log(err);
         }else{
-            res.render('chatoverview', {myCss: myCss, users: users, messages: messages, userID: userID});
+            res.render('chatoverview', {users: users, messages: messages, userID: userID});
         }
     })
 });
