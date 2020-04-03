@@ -14,18 +14,35 @@
         <div class="naastelkaar">
             <section id="deChat">
             <% if(messages.length){ %>
-                    <% for(var i=0; i < messages.length; i++){ %>
-                    <p class="myMessage"><%= messages[i].message %></p>
+                    <% for(let i=0; i < messages.length; i++){ %>
+                    <div>
+                        <form method="post" target="chatwindow">
+                            <p class="myMessage"><%= messages[i].message %></p> 
+                            <input type="hidden" name="objectid" value="<%= messages[i]._id %>">
+                            <input type="hidden" value="delete" name="delete">
+                            <button value="<%= messages[i]._id %>" id="delButton">delete</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form method="post" target="chatwindow">
+                            <input type="hidden" name="objectid" value="<%= messages[i]._id %>">
+                            <input type="hidden" value="noDelete" name="delete">
+                            <input name="editMessage" value="<%= messages[i].message %>">
+                            <button type="submit">Save</button> 
+                        </form>
+                    </div>
                 <% }} %>
     
         <p>Talk about <%= subjects[sub].oneSubject %></p>
         <form method="post" target="chatwindow">
-            <input type="textarea" name="message" placeholder="Say something" id="talkHere">
+            <input type="textarea" name="message" placeholder="Say something" id="talkHere" required>
+            <input type="hidden" value="noDelete" name="delete">
+            <input type="hidden" name="objectid" value="0">
 	        <button>--></button>
 	    </form>
 
     </section>
-    <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
+    <section class="chatprofile"><img src="/images/scratch.png" alt="Profielfoto">
         <h2><%= users[0].name %></h2>
         <h3><%= users[0].age %></h3>
         <h4>About me</h4>
@@ -34,6 +51,7 @@
     </section></div>
     </main>
     <footer><%- include('partials/footer.ejs'); -%></footer>
+    <script src="js/js.js"></script>
 </body>
 
 </html>

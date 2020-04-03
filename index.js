@@ -1,18 +1,18 @@
-const express = require('express');
-const app = express();
-const port = 3000;
-const path = require('path');
-const ejs = require('ejs');
-const fs = require('fs');
-const bodyParser = require ('body-parser');
+const express = require('express')
+const app = express()
+const port = 3000
+const path = require('path')
+const ejs = require('ejs')
+const fs = require('fs')
+const bodyParser = require ('body-parser')
 const slug = require('slug');
-const jquery = require('jquery');
-const session = require('express-session'); 
-const cookieParser = require('cookie-parser');
+const jquery = require('jquery')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 
 //database set-up
-const mongodb = require('mongodb');
-const mongoose = require('mongoose');
+const mongodb = require('mongodb')
+const mongoose = require('mongoose')
 require('dotenv').config()
 
 
@@ -22,17 +22,17 @@ mongoose
     useNewUrlParser: true
 })
 .then(()=> console.log("DB Connected"))
-.catch(err => {console.log( "DB Connection Error :" + err );
-});
+.catch(err => {console.log( "DB Connection Error :" + err )
+})
 
 //schema set-up
 let chatSchema = new mongoose.Schema({
     message: {
         type: String
     }
-});
+})
  
-let berichten = mongoose.model('berichten', chatSchema);
+let berichten = mongoose.model('berichten', chatSchema)
 
 let users = [{
     name: 'Jonny',
@@ -54,7 +54,7 @@ let users = [{
     name: 'Sara',
     age: 21,
     description: "meow"
-}];
+}]
 
 let subjects = [{
     oneSubject: 'your favorite animal'
@@ -88,64 +88,108 @@ let subjects = [{
 }]
 
 //express set-up
-app.use(express.static('static'));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(session({
-    name: users.name,
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET
-  }));
-
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-app.get('/chatoverview', (req, res) => 
-berichten.find(function(err, messages){
-    if (err) {
-        console.log(err);
-    }else{
-        res.render('chatoverview', {users: users, messages: messages})
-    }
-}));
-app.get('/chatwindow', (req, res) =>
-berichten.find(function(err, messages){
-    if (err) {
-        console.log(err);
-    }else{
-        let sub = Math.floor(Math.random() * 10);
-        res.render('chatwindow', {users: users, messages: messages, subjects: subjects, sub: sub})
-    }
-}));
-app.get('/', (req, res) => res.render('index', {myCss: myCss}));
-app.get('*', (req, res) => {res.send('Error 404: Page Not Found')});
-app.post('/chatwindow', (req, res) =>{
-    verstuur(req.body.message, req.session.user);
-    res.redirect(req.originalUrl);
-});
-app.post('/', (req, res) => {
-   // let userID = req.body.wie;
-   req.session.user = req.body.wie;
-   userID = req.session.user;
-    berichten.find(function(err, messages){
-        if (err) {
-            console.log(err);
-        }else{
-            res.render('chatoverview', {users: users, messages: messages, userID: userID});
-        }
-    })
-});
-
+app
+    .use(express.static('static'))
+    .use(bodyParser.urlencoded({extended: true}))
+    .use(session({
+        name: users.name,
+        resave: false,
+        saveUninitialized: true,
+        secret: process.env.SESSION_SECRET
+    }))
+    .set('view engine', 'ejs')
+    .set('views', 'views')
+    
+app
+    .get('/chatoverview', showUserMsg)
+    .get('/chatwindow', showMsg)
+    .get('/', (req, res) => res.render('index'))
+    .get('*', (req, res) => {res.send('Error 404: Page Not Found')})
+    .post('/chatwindow', sendMsg)
+    .post('/', setUser)
 
 function verstuur(msg, usrid){
-    let berichtje = new berichten({message: msg});
+    let berichtje = new berichten({message: msg})
     berichtje.save().then((err, doc) =>{ 
         if (!err || err.message.search('__v:0')){
-            console.log('message send door ' + users[usrid].name);
+            console.log('message send door ' + users[usrid].name)
         } else {
-            console.log('error during record insertion: ' + err);
+            console.log('error during record insertion: ' + err)
         }
-    });
-};
+    })
+}
+
+function wijzig(msg, id){
+    berichten.findOne({_id : id}, function(err, oMsg){
+        if(err){
+            console.log(err);
+        } else {
+            oMsg.message = msg;
+            oMsg.save(function(err, oUpdate) {
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log('record update' + oUpdate);
+                }
+            })
+        }
+    }
+    )}
+
+function del(id){
+    berichten.findOneAndRemove({_id : id}, function(err, oMsg){
+        if(err){
+            console.log(err);
+        }else{
+            console.log('message delete')
+        }
+    })
+}
+
+function setUser(req, res){
+    req.session.user = req.body.wie
+    userID = req.session.user
+    berichten.find(function(err, messages){
+        if (err) {
+            console.log(err)
+        }else{
+            res.render('chatoverview', {users: users, messages: messages, userID: userID})
+        }
+    })
+}
 
 
-app.listen(port, () => console.log('Example app listening on port ${port}!'));
+function showUserMsg(req, res){ 
+    berichten.find(function(err, messages){
+        if (err) {
+            console.log(err)
+        }else{
+            res.render('chatoverview', {users: users, messages: messages})
+        }
+    })
+}
+
+function showMsg(req, res) {
+    berichten.find(function(err, messages){
+        if (err) {
+            console.log(err)
+        }else{
+            let sub = Math.floor(Math.random() * 10)
+            res.render('chatwindow', {users: users, messages: messages, subjects: subjects, sub: sub})
+        }
+    })
+}
+
+function sendMsg(req, res){
+    console.log('id = '+req.body.objectid)
+    if(req.body.objectid === '0'){
+        verstuur(req.body.message, req.session.user);
+    }else if (req.body.delete === 'delete'){
+        del(req.body.objectid)
+    }else {
+        wijzig(req.body.editMessage, req.body.objectid);
+    }
+        res.redirect(req.originalUrl)
+}
+
+app.listen(port, () => console.log('Example app listening on port ${port}!')); 

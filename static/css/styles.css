@@ -126,6 +126,11 @@ article img{
     margin: .5em;
 }
 
+#delButton{
+    padding: .2em;
+    margin: 0;
+}
+
 footer {
     background-color: #ffffff;
     position: fixed;
