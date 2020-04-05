@@ -11,6 +11,7 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 
 //database set-up
+//used source: https://www.youtube.com/watch?v=ohmYRtEHktI&feature=youtu.be for setting up database
 const mongodb = require('mongodb')
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -91,6 +92,7 @@ let subjects = [{
 app
     .use(express.static('static'))
     .use(bodyParser.urlencoded({extended: true}))
+    //used source: https://www.youtube.com/watch?v=OH6Z0dJ_Huk for sessions
     .use(session({
         name: users.name,
         resave: false,
@@ -119,6 +121,7 @@ function verstuur(msg, usrid){
     })
 }
 
+//used source: https://www.youtube.com/watch?v=ohmYRtEHktI for Update and Delete
 function wijzig(msg, id){
     berichten.findOne({_id : id}, function(err, oMsg){
         if(err){
