@@ -11,61 +11,84 @@
     <link rel="stylesheet" href="../static/css/styles.css">
     </head>
 
-<body>
+<body id="yesjs" class="nojs">
     <header>
-<a href="/"><img src="../static/images/logo.png" alt="Blind Love logo"></a>
-<nav>
-    <ul>
-        <li><a>People</a></li>
-        <li><a>Matches</a></li>
-        <li><a>Profile</a></li>
-        <li><a href="chatoverview.html">Chat</a></li>
-    </ul>
-</nav>    </header>
+        <a href="index.html"><img src="../static/images/logo.png" alt="Blind Love logo"></a>
+        <nav>
+            <ul>
+                <li><a>People</a></li>
+                <li><a>Matches</a></li>
+                <li><a>Profile</a></li>
+                <li><a href="chatoverview.html">Chat</a></li>
+            </ul>
+        </nav>    
+    </header>
+    
     <main>
-        <a href="chatoverview.html"><img src="" alt="go back"></a>
+        <a href="chatoverview.html"><img class="cornerIcon" src="../static/images/goback.png" alt="go back"></a>
         <div class="naastelkaar">
             <section id="deChat">
-            
-                    
-                    <p class="myMessage">hoi</p>
+                <p class="messageNojs">It looks like your browser doesn't support Javascript. Refresh your page every so often to receive new messages</p>
                 
-                    <p class="myMessage">nog</p>
-                
-                    <p class="myMessage">wat</p>
-                
-                    <p class="myMessage"></p>
-                
-                    <p class="myMessage"></p>
-                
-                    <p class="myMessage">hey hey</p>
-                
-                    <p class="myMessage">hiehoe</p>
-                
-                    <p class="myMessage"></p>
-                
-                    <p class="myMessage"></p>
-                
-                    <p class="myMessage">Hoi</p>
-                
-    
-        <p>Talk about your favorite drink</p>
-        <form method="post" target="chatwindow">
-            <input type="textarea" name="message" placeholder="Say something" id="talkHere">
-	        <button>--></button>
-	    </form>
+                <article class="wholeMessage">
+                    <p id="theMsg0" class="myMessage">hoi</p>
+                    <form method="post" target="chatwindow">
+                        <input  id="editMsg0" class="hideEdit" name="editMessage" value="hoi">
+                        <button id="saveMsg0" class="hideEdit" type="submit">Save</button>
+                    </form>
+                    <button class="iconButton" id="editButton0"><img class="icon" src="../static/images/edit.png" alt="Edit"></button>
+                    <button class="iconButton"><img class="icon" src="../static/images/bin.png" alt="Delete"></button>
+                </article>
 
-    </section>
-    <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
-        <h2>Jonny</h2>
-        <h3>25</h3>
-        <h4>About me</h4>
-        <p>I am Jonny. I am looking for someone to take out into nature and have picknicks with.</p>
-        <button>Show Jonny's profile</button>
-    </section></div>
-    </main>
-    <footer>
-<p>Copyright 2020</p></footer>
-</body>
+                <article class="wholeMessage">
+                    <p id="theMsg1" class="myMessage">Hoe gaat het?</p>
+                    <form method="post" target="chatwindow">
+                        <input  id="editMsg1" class="hideEdit" name="editMessage" value="Hoe gaat het?">
+                        <button id="saveMsg1" class="hideEdit" type="submit">Save</button>
+                    </form>
+                    <button class="iconButton" id="editButton1"><img class="icon" src="../static/images/edit.png" alt="Edit"></button>
+                    <button class="iconButton"><img class="icon" src="../static/images/bin.png" alt="Delete"></button>
+                </article>
+                <article class="otherMsg">
+                <p class="theirMessage">Goed, met jou?</p>
+                </article>
 
+                <article class="wholeMessage">
+                    <p id="theMsg2" class="myMessage">Leuk je te ontmoeten</p>
+                    <form method="post" target="chatwindow">
+                        <input  id="editMsg2" class="hideEdit" name="editMessage" value="Leuk je te ontmoeten">
+                        <button id="saveMsg2" class="hideEdit" type="submit">Save</button>
+                    </form>
+                    <button class="iconButton" id="editButton2"><img class="icon" src="../static/images/edit.png" alt="Edit"></button>
+                    <button class="iconButton"><img class="icon" src="../static/images/bin.png" alt="Delete"></button>
+                </article>  
+                <article class="aSub">
+                <p id="sub1" class="hideSub subject">Talk about your favorite drink</p>
+                <p id="sub2" class="hideSub subject">Talk about your favorite animal</p>
+                <p id="sub3" class="hideSub subject">Talk about your favorite food</p>
+                <p id="sub4" class="hideSub subject">Talk about your hobbies</p>
+                <p id="sub5" class="hideSub subject">Talk about your dream holiday</p>
+                <p id="sub6" class="hideSub subject">Talk about your work or school</p>
+                <p id="sub7" class="hideSub subject">Talk about your family</p>
+                <p id="sub8" class="hideSub subject">Talk about where you want to live</p>
+                <p id="sub9" class="hideSub subject">Talk about where you live</p>
+                <p id="sub0" class="hideSub subject">Talk about how you feel about being vegetarian</p>
+                <p id="nojsSubs" class="subject">Somethings to talk about: drinks, animals, favorite food, your hobbies, dream holiday, work or school, your family, where you want to live, where you live, how you feel about being vegetarian</p>
+                </article>
+                <form method="post" target="chatwindow" class="down">
+                    <input type="textarea" name="message" placeholder="Say something" id="talkHere">
+	                <button>--></button>
+                </form>
+            </section>
+            <section class="chatprofile"><img src="../static/images/scratch.png" alt="Profielfoto">
+                <h2>Jonny</h2>
+                <h3>25</h3>
+                <h4>About me</h4>
+                <p>I am Jonny. I am looking for someone to take out into nature and have picknicks with.</p>
+                <button>Show Jonny's profile</button>
+                </section>
+            </div>
+        </main>
+            <script src="../static/js/js.js"></script>
+    </body>
 </html>
