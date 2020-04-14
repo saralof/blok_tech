@@ -4,10 +4,35 @@ html {
 }
 
 body {
-    font-family: 'Comfortaa';
+    font-family: 'Comfortaa', serif;
     margin: 0;
     padding: 0;
 }
+
+button{
+    border-radius: 1em;
+    background-color: #ffffff;
+    font-family: 'Comfortaa';
+    padding: 1.2em 2.5em;
+}
+
+h1 {
+    color: #af191a;
+    font-size: 6em;
+}
+
+a{ 
+    text-decoration: none;
+    color: #000000;
+}
+
+footer {
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+}
+
+/*navigation css */
 
 header {
     background-color: #ffc0cb;
@@ -31,29 +56,10 @@ header img {
     width:6em;
 }
 
+/*Index page css */
+
 #home {
     display: grid;
-}
-
-button{
-    border-radius: 1em;
-    background-color: #ffffff;
-    font-family: 'Comfortaa';
-    padding: 1.2em 2.5em;
-}
-
-h1 {
-    color: #af191a;
-    font-size: 6em;
-}
-
-#home ul {
-    grid-row-start: 2;
-}
-
-main li{
-    list-style-type: "❤";
-
 }
 
 #home img {
@@ -65,12 +71,40 @@ main li{
     padding-top: 3em;
 }
 
-a{ 
-    text-decoration: none;
-    color: #000000;
+#home ul {
+    grid-row-start: 2;
 }
 
-div{
+main li{
+    list-style-type: "❤";
+
+}
+
+/* css for chatoverview */
+
+#sayHi {
+    color: #af191a;
+    padding: 5em 0em 0em 5em;
+}
+
+.mensen {
+    background-color:  #F4F4F4;
+    border-radius: 2em;
+    padding: .5em;
+    margin: .5em;
+}
+
+/* css for both chatoverview and chatwindow */
+
+.notificationNojs {
+    display: none;
+}
+
+.nojs .notificationNojs {
+    display: inline;
+}
+
+.naastelkaar {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -85,10 +119,6 @@ article img{
     width: 100%;
 }
 
-.naastelkaar{
-    display: flex;
-}
-
 .chatprofile{
     width: 25%;
     background-color: #FCFCFC;
@@ -99,6 +129,12 @@ article img{
 
 .chatprofile img{
     width: 90%;
+}
+
+/* css only for chatwindow */
+
+.cornerIcon {
+    width: 3em;
 }
 
 #deChat {
@@ -120,11 +156,54 @@ article img{
     border-radius: 70px;
 }
 
+.nojs #deChat p {
+    padding: 0;
+}
+
+.myMessage {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    text-align: right;
+    background-color: #DEDEDD;
+}
+
+.theirMessage {
+    margin-left: .5em;
+    background-color: #F7E0E4;
+}
+
+.wholeMessage{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.otherMsg {
+    margin-right: auto;
+    margin-left: 0;
+}
+
 .subject{
     grid-row-start: 9;
     text-align: right;
     padding: .3em;
     background-color: white;
+}
+
+.aSub{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.hideSub{
+    display: none;
+}
+
+#nojsSubs {
+    display: none;
+}
+
+.nojs #nojsSubs {
+    display: inline;
 }
 
 .down {
@@ -140,24 +219,23 @@ article img{
     width: 50%;
 }
 
-#sayHi {
-    color: #af191a;
-    padding: 5em 0em 0em 5em;
-}
-
-.mensen {
-    background-color:  #F4F4F4;
-    border-radius: 2em;
-    padding: .5em;
-    margin: .5em;
-}
-
 .icon{
     width: 1em;
 }
 
-.cornerIcon {
-    width: 3em;
+.iconButton {
+    border-radius: 1em;
+    background-color: #ffffff;
+    font-family: 'Comfortaa';
+    padding: 0 .5em;
+}
+
+.nojs #editButton {
+    display: none;
+}
+
+.hideButton {
+    display: none;
 }
 
 #delButton{
@@ -175,77 +253,4 @@ article img{
 
 .nojs .hideEdit {
     display: inline;
-}
-
-#nojsSubs {
-    display: none;
-}
-
-.nojs #nojsSubs {
-    display: inline;
-}
-
-.nojs #editButton {
-    display: none;
-}
-
-.hideSub{
-    display: none;
-}
-
-
-.messageNojs {
-    display: none;
-}
-
-.nojs .messageNojs {
-    display: inline;
-}
-
-.iconButton {
-    border-radius: 1em;
-    background-color: #ffffff;
-    font-family: 'Comfortaa';
-    padding: 0 .5em;
-}
-
-.hideButton {
-    display: none;
-}
-
-.theirMessage {
-    margin-left: .5em;
-    background-color: #F7E0E4;
-}
-
-.wholeMessage{
-    margin-right: 0;
-    margin-left: auto;
-}
-
-.myMessage {
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-    text-align: right;
-    background-color: #DEDEDD;
-}
-
-.otherMsg {
-    margin-right: auto;
-    margin-left: 0;
-}
-
-.aSub{
-    margin-right: 0;
-    margin-left: auto;
-}
-
-.nojs #deChat p {
-    padding: 0;
-}
-
-footer {
-    background-color: #ffffff;
-    position: fixed;
-    bottom: 0;
 }
