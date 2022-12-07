@@ -4,11 +4,11 @@
   "version": "6.13.7",
   "author": "Sara Lof",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.0",
     "file-system": "^2.2.2",
     "jquery": "^3.4.1",
